@@ -12,26 +12,20 @@ jobs:
                   remote {
                       url('https://github.com/ibrolive/cloud-devops.git')
                   }
-                  extensions {
-                    relativeTargetDirectory('2. terraform-application-servers')
-                  }
               }
               git {
                   remote {
                       url('https://github.com/ibrolive/cloud-devops.git')
                   }
-                  extensions {
-                    relativeTargetDirectory('3. ci-cd')
-                  }
               }
           }
           steps {
               dsl {
-                  lookupStrategy('SEED_JOB')
+                  lookupStrategy('PROVISIONING')
                   external('2. terraform-application-servers/PROVISIONING.Jenkinsfile')
               }
               dsl {
-                  lookupStrategy('SEED_JOB')
+                  lookupStrategy('CI-CD')
                   external('3. ci-cd/CI-CD.Jenkinsfile')
               }
           }
