@@ -1,0 +1,1 @@
+cp ./jenkins.yaml /var/lib/jenkins/jenkins.yaml

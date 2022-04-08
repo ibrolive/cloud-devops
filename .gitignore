@@ -1,0 +1,4 @@
+packer.log
+tfplan
+.terraform.lock.hcl
+.terraform
