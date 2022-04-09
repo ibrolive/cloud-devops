@@ -8,7 +8,7 @@ pipelineJob("CICD") {
           }
         }
       }
-      scriptPath("3. ci-cd/CI-CD.Jenkinsfile")
+      scriptPath("3. ci-cd/CI_CD.Jenkinsfile")
     }
   }
 }
