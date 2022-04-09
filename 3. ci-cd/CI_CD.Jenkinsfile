@@ -36,9 +36,7 @@ agent any
         }
         stage ('Build Image') { 
             steps {
-                sh """
-                    sudo docker build . -t ${dockerhub_repository}:react-springboot-image
-                """
+                sh 'docker build . -t ${dockerhub_repository}:react-springboot-image'
             }
         }
         stage ('Push Image') { 
@@ -48,8 +46,8 @@ agent any
                 usernameVariable: 'REGISTRY_USER',
                 passwordVariable: 'REGISTRY_PASSWORD']]) {
                     sh """
-                        sudo docker login -u ${REGISTRY_USER} -p ${REGISTRY_PASSWORD}
-                        sudo docker push ${dockerhub_repository}:react-springboot-image
+                        docker login -u ${REGISTRY_USER} -p ${REGISTRY_PASSWORD}
+                        docker push ${dockerhub_repository}:react-springboot-image
                     """
                 }
             }
