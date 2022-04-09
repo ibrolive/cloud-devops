@@ -36,6 +36,7 @@ agent any
         }
         stage ('Build Image') { 
             steps {
+                sh 'whoami'
                 sh "docker build . -t ${dockerhub_repository}:react-springboot-image"
             }
         }
