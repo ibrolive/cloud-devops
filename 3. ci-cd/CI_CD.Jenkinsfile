@@ -36,7 +36,7 @@ agent any
         }
         stage ('Build Image') { 
             steps {
-                sh 'docker build . -t ${dockerhub_repository}:react-springboot-image'
+                sh "docker build . -t ${dockerhub_repository}:react-springboot-image"
             }
         }
         stage ('Push Image') { 
