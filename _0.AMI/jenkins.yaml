@@ -13,11 +13,6 @@ jobs:
                       url('https://github.com/ibrolive/cloud-devops.git')
                   }
               }
-              git {
-                  remote {
-                      url('https://github.com/ibrolive/cloud-devops.git')
-                  }
-              }
           }
           steps {
               dsl {
@@ -26,7 +21,7 @@ jobs:
               }
               dsl {
                   lookupStrategy('CI-CD')
-                  external('3. ci-cd/CI-CD.Jenkinsfile')
+                  external('job.groovy')
               }
           }
           triggers {
