@@ -17,13 +17,11 @@ agent any
             steps {
                 git branch: 'main',
                     url: 'https://github.com/ibrolive/react-and-spring-data-rest.git'
-                sh 'ls'
             }
         }
         stage ('Build') { 
             steps {
                 sh '''
-                    cd react-and-spring-data-rest
                     sudo chmod -R 777 .
                     chmod +x mvnw
                     ./mvnw clean verify
@@ -34,7 +32,6 @@ agent any
             steps {
                 // skipping tests because maven version 3.1.0 is required and only 3.0.5 is available on amazon linux noarch
                 sh '''
-                    cd react-and-spring-data-rest
                     /var/lib/jenkins/workspace/apache-maven-3.8.1/bin/mvn test #-Dmaven.test.failure.ignore=true -DskipTests -Dmaven.test.skip=true
                 '''
             }
@@ -42,7 +39,6 @@ agent any
         stage ('Build Image') { 
             steps {
                 sh """
-                    cd react-and-spring-data-rest
                     sudo docker build . -t ${dockerhub_repository}:react-springboot-image
                 """
             }
