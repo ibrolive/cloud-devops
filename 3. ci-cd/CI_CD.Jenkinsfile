@@ -15,7 +15,7 @@ agent any
         }
         stage ('Checkout') {
             steps {
-                git branch: 'master',
+                git branch: 'main',
                     url: 'https://github.com/ibrolive/react-and-spring-data-rest.git'
             }
         }
