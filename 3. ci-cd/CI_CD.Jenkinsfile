@@ -42,7 +42,7 @@ agent any
         stage ('Push Image') { 
             steps {
                 withCredentials([[$class: 'UsernamePasswordMultiBinding',
-                credentialsId: 'registry',
+                credentialsId: 'dockerImageRegistry',
                 usernameVariable: 'REGISTRY_USER',
                 passwordVariable: 'REGISTRY_PASSWORD']]) {
                     sh """
