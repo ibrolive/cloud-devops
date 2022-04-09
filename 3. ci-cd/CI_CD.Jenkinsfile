@@ -57,29 +57,14 @@ agent any
                 echo 'Deploying to DEV environment'
             } 
         }
-        stage ('Verify DEV') {
-            steps {
-                sh 'curl -v -u greg:turnquist dev.server.com:8080/api/employees/1'
-            }
-        }
         stage ('Deploy STAGING') {
             steps {
                 echo 'Deploying to STAGING environment'
             }
         }
-        stage ('Verify STAGING') {
-            steps {
-                sh 'curl -v -u greg:turnquist staging.server.com:8080/api/employees/1'
-            }
-        }
         stage ('Deploy PRODUCTION') {
             steps {
                 echo 'Deploying to PRODUCTION environment'
-            }
-        }
-        stage ('Verify PRODUCTION') {
-            steps {
-                sh 'curl -v -u greg:turnquist production.server.com:8080/api/employees/1'
             }
         }
     }           
