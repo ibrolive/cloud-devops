@@ -1,4 +1,6 @@
-def dockerhub_repository = 'ibrolive/devops-demo'
+def docker_image_registry = 'registry-1.docker.io/v1'
+def docker_image_repository = 'ibrolive/devops-demo'
+def docker_image_tag = 'react-springboot-image'
 pipeline { 
 agent any 
     stages { 
@@ -36,7 +38,7 @@ agent any
         }
         stage ('Build Image') { 
             steps {
-                sh "docker build . -t ${dockerhub_repository}:react-springboot-image"
+                sh "docker build . -t ${docker_image_repository}:${docker_image_tag}"
             }
         }
         stage ('Push Image') { 
@@ -46,8 +48,8 @@ agent any
                 usernameVariable: 'REGISTRY_USER',
                 passwordVariable: 'REGISTRY_PASSWORD']]) {
                     sh """
-                        docker login -u ${REGISTRY_USER} -p ${REGISTRY_PASSWORD}
-                        docker push ${dockerhub_repository}:react-springboot-image
+                        docker login ${docker_image_registry} -u ${REGISTRY_USER} -p ${REGISTRY_PASSWORD}
+                        docker push ${docker_image_repository}:${docker_image_tag}
                     """
                 }
             }
