@@ -16,7 +16,7 @@ agent any
         stage ('Checkout') {
             steps {
                 git branch: 'master',
-                    url: 'https://github.com/ibrolive/react-and-springboot-ci-cd-iac.git'
+                    url: 'https://github.com/ibrolive/react-and-spring-data-rest.git'
             }
         }
         stage ('Build') { 
