@@ -12,7 +12,7 @@
 3. Execute `aws configure` to setup the required AWS Access Key ID, AWS Secret Access Key and default region (us-east-1)
 4. Checkout the code from this github repository
 5. Execute `Build AMI.bat` (for Windows) or `Build AMI.sh` (for Linux) to provision a base image with Jenkins already installed
-6. In [jenkins.tfvars](1.%20terraform-jenkins-server/jenkins.tfvars), you can set the following variables:
+6. In [1. terraform-jenkins-server/jenkins.tfvars], you can set the following variables:
    - default region
    - your account `owner` (AWS Account ID) 
    - jenkins login username
@@ -20,7 +20,8 @@
    - EC2 instance size for jenkins
 5. Execute `Provision-Jenkins.bat` (for Windows) or `Provision-Jenkins.sh` (for Linux) to provision a Jenkins instance. After Jenkins is provisioned successfully, you can login using the jenkins username and password you provided in the above step
 6. Add dockerhub login details in Jenkins credential registry
-7. Update `dockerhub_repository` on line 1 of [ci-cd/CI-CD.Jenkinsfile](3.%20ci-cd/CI-CD.Jenkinsfile)
+7. Update `dockerhub_repository` on line 1 of [3. ci-cd/CI-CD.Jenkinsfile](https://github.com/ibrolive/cloud-devops/blob/main/3.%20ci-cd/CI_CD.Jenkinsfile)
+8. Update your docker hub username and encrypted password credentials in the JCasC config file: [0.AMI/jenkins.yaml](https://github.com/ibrolive/cloud-devops/blob/main/0.AMI/jenkins.yaml)
 
 ## ARCHITECTURE
 
