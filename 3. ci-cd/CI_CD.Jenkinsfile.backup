@@ -5,10 +5,10 @@ agent any
         stage ('Prerequisites') {
             steps {
                 sh '''
-                    sudo yum install -y docker java-1.8.0-openjdk-devel maven
-                    sudo curl --output /var/lib/jenkins/apache-maven-3.8.1-bin.tar.gz https://downloads.apache.org/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz
-                    tar -xvf /var/lib/jenkins/apache-maven-3.8.1-bin.tar.gz
-                    docker --help
+                    #sudo yum install -y docker java-1.8.0-openjdk-devel maven
+                    #sudo curl --output /var/lib/jenkins/apache-maven-3.8.1-bin.tar.gz https://downloads.apache.org/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz
+                    #tar -xvf /var/lib/jenkins/apache-maven-3.8.1-bin.tar.gz
+                    #docker --help
                     #service docker restart #might not be necessary
                 '''
             }
