@@ -31,9 +31,7 @@ agent any
         stage ('Test') { 
             steps {
                 // skipping tests because maven version 3.1.0 is required and only 3.0.5 is available on amazon linux noarch
-                sh '''
-                    /var/lib/jenkins/workspace/apache-maven-3.8.1/bin/mvn test #-Dmaven.test.failure.ignore=true -DskipTests -Dmaven.test.skip=true
-                '''
+                sh './mvnw test #-Dmaven.test.failure.ignore=true -DskipTests -Dmaven.test.skip=true'
             }
         }
         stage ('Build Image') { 
