@@ -17,6 +17,7 @@ agent any
             steps {
                 git branch: 'main',
                     url: 'https://github.com/ibrolive/react-and-spring-data-rest.git'
+                sh 'ls'
             }
         }
         stage ('Build') { 
