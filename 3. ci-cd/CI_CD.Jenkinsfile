@@ -22,7 +22,7 @@ agent any
         stage ('Build') { 
             steps {
                 sh '''
-                    sudo chmod -R 777 .
+                    chmod -R 777 .
                     chmod +x mvnw
                     ./mvnw clean verify
                 '''
