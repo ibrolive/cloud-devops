@@ -36,6 +36,6 @@ credentials:
           - usernamePassword:
               scope: GLOBAL
               id: "dockerImageRegistry"
-              username: "${DOCKER_IMAGE_REGISTRY_PASSWORD:your-username}"
+              username: "${DOCKER_IMAGE_REGISTRY_USERNAME:your-username}"
               password: "${DOCKER_IMAGE_REGISTRY_PASSWORD:your-password}"
               description: "Username/password credentials for docker image registry"
