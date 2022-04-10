@@ -1,6 +1,6 @@
 def docker_image_registry = 'registry-1.docker.io/v1'
 def docker_image_repository = 'ibrolive/devops-demo'
-def docker_image_tag = 'react-springboot-image'
+def docker_image_tag = 'react-springboot-image-frontend'
 pipeline { 
 agent any 
     stages { 
