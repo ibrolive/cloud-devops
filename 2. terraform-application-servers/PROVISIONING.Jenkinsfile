@@ -8,6 +8,7 @@ pipeline {
             steps {
                 sh '''
                     terraform -v
+                    ls -l
                 '''
             }
         }

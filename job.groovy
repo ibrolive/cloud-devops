@@ -12,3 +12,17 @@ pipelineJob("CICD") {
     }
   }
 }
+pipelineJob("PROVISIONING") {
+  definition {
+    cpsScm {
+      scm {
+        git {
+          remote {
+            url("https://github.com/ibrolive/cloud-devops.git")
+          }
+        }
+      }
+      scriptPath("2. terraform-application-servers/PROVISIONING.Jenkinsfile")
+    }
+  }
+}

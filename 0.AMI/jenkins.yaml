@@ -15,13 +15,8 @@ jobs:
               }
           }
           steps {
-              dsl {
-                  lookupStrategy('PROVISIONING')
-                  external('2. terraform-application-servers/PROVISIONING.Jenkinsfile')
-              }
-              dsl {
-                  lookupStrategy('CI-CD')
-                  external('job.groovy')
+              jobDsl {
+                  targets 'job.groovy'
               }
           }
           triggers {
