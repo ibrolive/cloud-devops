@@ -37,22 +37,18 @@
 
 4. push docker container
 
-5. deploy application across different environments on target infra (using ansible with ssh)
- 
-   - deploy to dev environment
-   - deploy to staging environment
-   - deploy to production environment
+5. deploy frontend and backend services to AWS ECS
 
 ### INFRASTRUCTURE PROVISIONING (TERRAFORM)
 
 1. create infrastructure as code for:
    - Jenkins build server (for CI/CD) + Nagios server (for monitoring and auditing)
-   - pipeline to provision frontend and backend dev, staging & production EC2 instances on AWS
+   - pipeline to provision frontend and backend ECs instances on AWS
 2. setup access control (to allow multiple personal accounts)
 
 3. add auto scaling to servers (bonus point)
 
-4. mysql/postgresql database (bonus point)
+4. mysql/postgresql database (bonus point) [not done]
  
 5. create destroy functionality
 
