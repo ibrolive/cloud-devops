@@ -25,7 +25,8 @@ agent any
             steps {
                 sh '''
                     chmod -R 777 .
-                    npm install
+                    chmod +x mvnw
+                    ./mvnw clean verify
                 '''
             }
         }
