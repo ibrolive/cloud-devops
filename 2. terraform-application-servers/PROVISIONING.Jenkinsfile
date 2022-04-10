@@ -22,7 +22,7 @@ pipeline {
         stage ('Plan') {
             when {
                 expression {
-                    return env.action == 'plan' || env.action == 'apply';
+                    return env.action == 'plan';
                 }
             }
             steps {
@@ -34,7 +34,7 @@ pipeline {
                         export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
                         export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
                         cd "2. terraform-application-servers"
-                        terraform plan -out=tfplan -input=false
+                        terraform plan
                     """
                 }
             }
@@ -54,7 +54,7 @@ pipeline {
                         export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
                         export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
                         cd "2. terraform-application-servers"
-                        terraform apply --auto-approve -input=false tfplan
+                        terraform apply --auto-approve
                     """
                 }
             }
@@ -62,7 +62,7 @@ pipeline {
         stage ('Destroy Plan') {
             when {
                 expression {
-                    return env.action == 'plan-destroy' || env.action == 'destroy';
+                    return env.action == 'plan-destroy';
                 }
             }
             steps {
@@ -96,7 +96,7 @@ pipeline {
                     """
                     sh '''
                         cd "2. terraform-application-servers"
-                        terraform destroy -auto-approve -input=false
+                        terraform destroy -auto-approve
                     '''
                 }
             }
