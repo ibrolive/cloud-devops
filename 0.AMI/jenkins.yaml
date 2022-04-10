@@ -30,7 +30,7 @@ credentials:
       - credentials:
           - usernamePassword:
               scope: GLOBAL
-              id: "dockerImageRegistry"
+              id: "jcasc-credential"
               username: "your-username"
               password: "your-encrypted-password"
-              description: "Username/password credentials for docker image registry"
+              description: "Unused username/password credentials created by JCasC for demo"
