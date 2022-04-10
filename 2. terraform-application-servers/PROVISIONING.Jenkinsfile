@@ -1,7 +1,7 @@
 pipeline { 
     agent any 
     parameters {
-        choice(name: 'action', choices: ['plan', 'provision', 'destroy'], description: '')
+        choice(name: 'action', choices: ['plan', 'apply', 'destroy'], description: '')
     }
     stages {
         stage ('Terraform Prerequisites') {
@@ -23,7 +23,7 @@ pipeline {
         stage ('Plan') {
             when {
                 expression {
-                    return env.action == 'plan' || env.action == 'provision';
+                    return env.action == 'plan' || env.action == 'apply';
                 }
             }
             steps {
@@ -43,7 +43,7 @@ pipeline {
         stage ('Apply') {
             when {
                 expression {
-                    return env.action == 'provision';
+                    return env.action == 'apply';
                 }
             }
             steps {
