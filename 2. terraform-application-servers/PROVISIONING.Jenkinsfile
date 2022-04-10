@@ -4,8 +4,8 @@ pipeline {
         stage ('Select Task') {
             steps {
                 script {
-                    env.action = input message: 'What do you want to do ?', ok: 'ok',
-                                parameters: [choice(name: 'action', choices: ['plan', 'apply', 'destroy'], description: '')]
+                    env.action = input message: 'Choose an action below:', ok: 'ok',
+                                parameters: [choice(name: 'action', choices: ['plan', 'apply', 'plan-destroy', 'destroy'], description: '')]
                     
                     echo "${env.action}"
                 }
@@ -62,7 +62,7 @@ pipeline {
         stage ('Destroy Plan') {
             when {
                 expression {
-                    return env.action == 'destroy';
+                    return return env.action == 'plan-destroy' || env.action == 'destroy';
                 }
             }
             steps {
