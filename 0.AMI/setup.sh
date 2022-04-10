@@ -18,7 +18,7 @@ yum install -y docker
 
 echo "Install nodejs"
 sudo curl --silent --location https://rpm.nodesource.com/setup_12.x | bash -
-yum -y install nodejs
+yum install -y nodejs
 
 echo "Setup SSH key"
 mkdir /var/lib/jenkins/.ssh
@@ -27,6 +27,11 @@ chown -R jenkins:jenkins /var/lib/jenkins/.ssh
 chmod 700 /var/lib/jenkins/.ssh
 #mv /tmp/id_rsa /var/lib/jenkins/.ssh/id_rsa
 #chmod 600 /var/lib/jenkins/.ssh/id_rsa
+
+echo "Setup terraform"
+yum install -y yum-utils
+yum-config-manager --add-repo https://rpm.releases.hashicorp.com/AmazonLinux/hashicorp.repo
+yum install -y terraform
 
 echo "Configure Jenkins"
 mkdir -p /var/lib/jenkins/init.groovy.d
