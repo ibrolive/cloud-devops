@@ -62,7 +62,7 @@ pipeline {
         stage ('Destroy Plan') {
             when {
                 expression {
-                    return return env.action == 'plan-destroy' || env.action == 'destroy';
+                    return env.action == 'plan-destroy' || env.action == 'destroy';
                 }
             }
             steps {
