@@ -25,8 +25,7 @@ agent any
             steps {
                 sh '''
                     chmod -R 777 .
-                    chmod +x mvnw
-                    ./mvnw clean verify
+                    npm install
                 '''
             }
         }
@@ -54,20 +53,21 @@ agent any
                 }
             }
         }
-        stage ('Deploy DEV') {
+        stage ('Deploy') {
             steps {
-                echo 'Deploying to DEV environment'
+                withCredentials([[$class: 'UsernamePasswordMultiBinding',
+                credentialsId: 'aws_cli_credential',
+                usernameVariable: 'AWS_ACCESS_KEY_ID',
+                passwordVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                    echo 'Deploying application'
+                    sh """
+                        export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+                        export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+                        cd "3. ci-cd"
+                        ./deploy-frontend.sh
+                    """
+                }
             } 
-        }
-        stage ('Deploy STAGING') {
-            steps {
-                echo 'Deploying to STAGING environment'
-            }
-        }
-        stage ('Deploy PRODUCTION') {
-            steps {
-                echo 'Deploying to PRODUCTION environment'
-            }
         }
     }           
  }
