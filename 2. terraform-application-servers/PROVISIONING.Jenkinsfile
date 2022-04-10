@@ -1,15 +1,12 @@
 pipeline { 
     agent any 
-    parameters {
-        choice(name: 'action', choices: ['plan', 'apply', 'destroy'], description: '')
-    }
     stages {
-        stage ('Terraform Prerequisites') {
+        stage ('Select Task') {
             steps {
-                sh '''
-                    terraform -v
-                    ls -l
-                '''
+                env.action = input message: 'What do you want to do ?', ok: 'ok',
+                            parameters: [choice(name: 'action', choices: ['plan', 'apply', 'destroy'], description: '')]
+                
+                echo "${env.action}"
             }
         }
         stage ('Init') {
