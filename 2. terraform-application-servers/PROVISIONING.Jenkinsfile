@@ -3,10 +3,12 @@ pipeline {
     stages {
         stage ('Select Task') {
             steps {
-                env.action = input message: 'What do you want to do ?', ok: 'ok',
-                            parameters: [choice(name: 'action', choices: ['plan', 'apply', 'destroy'], description: '')]
-                
-                echo "${env.action}"
+                script {
+                    env.action = input message: 'What do you want to do ?', ok: 'ok',
+                                parameters: [choice(name: 'action', choices: ['plan', 'apply', 'destroy'], description: '')]
+                    
+                    echo "${env.action}"
+                }
             }
         }
         stage ('Init') {
