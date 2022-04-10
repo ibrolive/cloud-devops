@@ -24,6 +24,10 @@ jobs:
           }
       }
 
+security:
+  globalJobDslSecurityConfiguration:
+    useScriptSecurity: false # prevent the need for script approvals for DSL job. set to true if required.
+
 credentials:
   system:
     domainCredentials:
