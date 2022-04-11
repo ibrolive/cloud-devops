@@ -37,7 +37,7 @@ command-launcher
 conditional-buildstep
 config-file-provider
 configuration-as-code
-credentials:1087.v16065d268466
+credentials
 credentials-binding
 display-url-api
 docker-commons
