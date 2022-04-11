@@ -19,11 +19,10 @@
 ![Building AMI for Jenkins](assets/building-ami-for-jenkins.jpg)
 You should also see a [new AMI in us-east-1 region](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Images:visibility=owned-by-me) like the screenshot below:
 ![New AMI built with packer](assets/new-ami-built-with-packer.jpg)
-6. In [1. terraform-jenkins-server/jenkins.tfvars](1. terraform-jenkins-server/jenkins.tfvars), you can set the values for the following:
+6. In [1. terraform-jenkins-server/jenkins.tfvars](https://github.com/ibrolive/cloud-devops/blob/main/1.%20terraform-jenkins-server/jenkins.tfvars), you can set the values for the following:
    - default region (must be us-east-1 for this demo)
-   - your account `owner` (AWS Account ID) 
-   - jenkins login username
-   - jenkins login password
+   - preferred jenkins login username
+   - preferred jenkins login password
    - EC2 instance size for jenkins
 5. Execute `Provision-Jenkins.bat` (for Windows) or `Provision-Jenkins.sh` (for Linux) to provision a Jenkins instance. After Jenkins is provisioned successfully, you can login using the jenkins username and password you provided in the above step
 6. Add dockerhub login details in Jenkins credential registry
