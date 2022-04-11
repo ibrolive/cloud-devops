@@ -31,16 +31,17 @@ You should also see a [new AMI in us-east-1 region](https://us-east-1.console.aw
 ![Jenkins Home Page](assets/jenkins-home-page.jpg)
 10. Click the log in button at the top right corner to login to Jenkins using the Jenkins username and password you provided in the above step:
 ![Jenkins Login](assets/jenkins-login.jpg)
-By now, the seed job should have added three more jobs to Jenkins. All four jobs (seed job, provisioning pipeline, frontend pipeline and backend pipeline) should be triggered automatically for the first time.
+11. By now, the seed job should have added three more jobs to Jenkins. All four jobs (seed job, provisioning pipeline, frontend pipeline and backend pipeline) should be triggered automatically for the first time. Naturally, the frontend and backend pipelines will fail to deploy until the AWS ECS infrastructure has been provisioned.
 ![Jenkins Jobs](assets/jenkins-jobs.jpg)
-The provisioning job is used to create AWS ECS infrastructure. Select the provisioning job, and select the action you would like to perform. You can perform the following actions:
+12. The provisioning job is used to create AWS ECS infrastructure. Select the provisioning job, and select the action you would like to perform. You can perform the following actions:
    - plan: this executes a simple terraform plan and shows you all the infrastructure that will be provisioned by terraform
    - apply: this executes a terraform apply which provisions the AWS ECS infrastructure on your account
    - plan-destroy: this executes a simple terraform plan -destroy and shows you all the infrastructure that will be destroyed
    - destroy: this executes a terraform destroy and does a clean up of the application infrastructure provisioned by terraform on this Jenkins server (excluding the Jenkins server itself ofcourse)
 ![Choose Action](assets/choose-action.jpg)
-11. Select the apply action in the provisioning job above.
-12. Update `dockerhub_repository` on line 1 of [3. ci-cd/CI-CD.Jenkinsfile](https://github.com/ibrolive/cloud-devops/blob/main/3.%20ci-cd/CI_CD.Jenkinsfile)
+13. Select the apply action in the provisioning job above.
+![Infrastructure Provisioning Completed](infrastructure-provisioning-completed.jpg)
+14. Update `dockerhub_repository` on line 1 of [3. ci-cd/CI-CD.Jenkinsfile](https://github.com/ibrolive/cloud-devops/blob/main/3.%20ci-cd/CI_CD.Jenkinsfile)
 
 
 ## ARCHITECTURE

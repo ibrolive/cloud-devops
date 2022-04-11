@@ -17,7 +17,7 @@ variable "az_count" {
 
 variable "app_image" {
   description = "Docker image to run in the ECS cluster"
-  default     = "nginxdemos/hello"
+  default     = "ibrolive/devops-demo" # nginxdemos/hello
 }
 
 variable "app_port" {
@@ -31,7 +31,7 @@ variable "app_count" {
 }
 
 variable "health_check_path" {
-  default = "/"
+  default = "/login"
 }
 
 variable "fargate_cpu" {
