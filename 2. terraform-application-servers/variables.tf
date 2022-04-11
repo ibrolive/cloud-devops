@@ -17,7 +17,7 @@ variable "az_count" {
 
 variable "app_image" {
   description = "Docker image to run in the ECS cluster"
-  default     = "ibrolive/devops-demo" # nginxdemos/hello
+  default     = "ibrolive/devops-demo:react-springboot-image-frontend" # nginxdemos/hello
 }
 
 variable "app_port" {
