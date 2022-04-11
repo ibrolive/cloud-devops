@@ -30,13 +30,14 @@ blueocean-web
 bouncycastle-api
 branch-api
 build-pipeline-plugin
+caffeine-api
 cloudbees-bitbucket-branch-source
 cloudbees-folder
 command-launcher
 conditional-buildstep
 config-file-provider
 configuration-as-code
-credentials
+credentials:1087.v16065d268466
 credentials-binding
 display-url-api
 docker-commons
@@ -75,7 +76,7 @@ matrix-project
 maven-plugin
 mercurial
 momentjs
-nodeJS-plugin
+nodejs
 pam-auth
 parameterized-trigger
 pipeline-build-step
@@ -103,6 +104,7 @@ ssh-agent
 ssh-credentials
 ssh-slaves
 simple-theme
+snakeyaml-api
 structs
 token-macro
 variant

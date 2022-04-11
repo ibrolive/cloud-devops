@@ -6,7 +6,7 @@
 jobs:
   - script: >
       job('seed_job') {
-          label('jenkins-master')
+          label('built-in')
           multiscm {
               git {
                   remote {
@@ -27,14 +27,3 @@ jobs:
 security:
   globalJobDslSecurityConfiguration:
     useScriptSecurity: false # prevent the need for script approvals for DSL job. set to true if required.
-
-credentials:
-  system:
-    domainCredentials:
-      - credentials:
-          - usernamePassword:
-              scope: GLOBAL
-              id: "jcasc-credential"
-              username: "your-username"
-              password: "your-encrypted-password"
-              description: "Unused username/password credentials created by JCasC for demo"

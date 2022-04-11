@@ -23,6 +23,7 @@ yum install -y nodejs
 echo "Setup SSH key"
 mkdir /var/lib/jenkins/.ssh
 touch /var/lib/jenkins/.ssh/known_hosts
+chown -R jenkins:jenkins /var/lib/jenkins
 chown -R jenkins:jenkins /var/lib/jenkins/.ssh
 chmod 700 /var/lib/jenkins/.ssh
 #mv /tmp/id_rsa /var/lib/jenkins/.ssh/id_rsa
@@ -59,6 +60,12 @@ bash /tmp/nrpe-install.sh
 bash /tmp/minikube.sh
 bash /tmp/install-plugins.sh
 bash /tmp/configure-jenkins-as-code.sh
+
+#temporary fix for credentials plugin. latest version (1111.v35a_307992395) gets installed but is incompatible with latest stable version (2.332.2) of jenkins, requires jenkins version 2.340 which is only available as a weekly release candidate.
+rm -rf /var/lib/jenkins/plugins/credentials
+rm -f /var/lib/jenkins/plugins/credentials.hpi
+curl -L --silent --output /var/lib/jenkins/plugins/credentials.hpi https://updates.jenkins.io/download/plugins/credentials/1087.v16065d268466/credentials.hpi
+
 service docker start
 systemctl enable docker
 service jenkins start
