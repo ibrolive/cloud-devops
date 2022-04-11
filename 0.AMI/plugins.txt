@@ -63,6 +63,7 @@ jcasc
 jdk-tool
 jenkins-design-language
 jira
+job-dsl
 jquery
 jquery-detached
 jsch

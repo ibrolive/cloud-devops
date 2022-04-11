@@ -1,7 +1,11 @@
 # cloud-devops
 
+## ASSUMPTIONS
+1. I have tested the setup scripts for Windows and assume that this demo will be run on a Windows.
+2. This demo was developed using an AWS user with admin permissions (FullAccess) to EC2 and ECS.
+
 ## HOW TO USE
-1. Install following pre-requisites:
+1. Install following pre-requisites on your local computer to provision Jenkins on AWS EC2:
    - [packer 1.8.0](https://www.packer.io/downloads)
    - [terraform 1.1.8](https://www.terraform.io/downloads)
    - [aws-cli](https://aws.amazon.com/cli/)
@@ -9,11 +13,14 @@
    - `packer -v`
    - `terraform -v`
    - `aws --version`
-3. Execute `aws configure` to setup the required AWS Access Key ID, AWS Secret Access Key and default region (us-east-1)
+3. Open a Command Prompt window and execute `aws configure` to setup the required AWS Access Key ID, AWS Secret Access Key and default region (us-east-1) for the AWS account where the infrastructure will be provisioned. Note that the default region has to be us-east-1 for this demo as the base AMI image used for this demo is located in this region.
 4. Checkout the code from this github repository
-5. Execute `Build AMI.bat` (for Windows) or `Build AMI.sh` (for Linux) to provision a base image with Jenkins already installed
-6. In [1. terraform-jenkins-server/jenkins.tfvars], you can set the following variables:
-   - default region
+5. Execute `Build AMI.bat` (for Windows) or `Build AMI.sh` (for Linux) to provision a base AMI image with Jenkins already installed. The AMI build should only take a few minutes. Once AMI is built successfully, you should see a message similar to the screenshot below:
+![Building AMI for Jenkins](assets/building-ami-for-jenkins.jpg)
+You should also see a [new AMI in us-east-1 region](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Images:visibility=owned-by-me) like the screenshot below:
+![New AMI built with packer](assets/new-ami-built-with-packer.jpg)
+6. In [1. terraform-jenkins-server/jenkins.tfvars](1. terraform-jenkins-server/jenkins.tfvars), you can set the values for the following:
+   - default region (must be us-east-1 for this demo)
    - your account `owner` (AWS Account ID) 
    - jenkins login username
    - jenkins login password

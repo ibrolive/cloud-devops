@@ -52,6 +52,7 @@ chmod +x /tmp/dockerinstall.sh
 chmod +x /tmp/nagios-install.sh
 chmod +x /tmp/nrpe-install.sh
 chmod +x /tmp/minikube.sh
+chmod +x /tmp/configure-jenkins-as-code.sh
 bash /tmp/dockerinstall.sh
 bash /tmp/nagios-install.sh
 bash /tmp/nrpe-install.sh

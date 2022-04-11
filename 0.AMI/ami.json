@@ -75,6 +75,16 @@
             "destination" : "/tmp/nrpe-install.sh"
         },
         {
+            "type" : "file",
+            "source" : "./jenkins.yaml",
+            "destination" : "/tmp/jenkins.yaml"
+        },
+        {
+            "type" : "file",
+            "source" : "./configure-jenkins-as-code.sh",
+            "destination" : "/tmp/configure-jenkins-as-code.sh"
+        },
+        {
             "type" : "shell",
             "script" : "./setup.sh",
             "execute_command" : "sudo -E -S sh '{{ .Path }}'"
