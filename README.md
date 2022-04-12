@@ -10,6 +10,7 @@ This project is used to setup AWS infrastructure for a react/springboot applicat
 - Using the above IaC pipeline, the script then uses terraform to provision an AWS ECS load-balanced and monitored infrastructure to run the application
 - The above IaC pipeline also contains a clean up pipeline to destroy the application infrastructure provisioned above
 - The above CICD pipeline builds and tests the application, pushes the application docker image to dockerhub and deploys the application to AWS ECS
+- The project takes advantage of AWS cloud native logging and monitoring such as CloudWatch.
 
 
 ## ASSUMPTIONS
