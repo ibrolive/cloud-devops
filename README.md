@@ -15,6 +15,7 @@ This project is used to setup AWS infrastructure for a react/springboot applicat
 ## ASSUMPTIONS
 1. This project and all the setup scripts were developed on a Windows platform. The equivalent shell scripts have also been included and tested in Windows Subsystem for Linux (WSL), however the project is optimized to run on Windows.
 2. This demo was developed using an AWS user with admin permissions (FullAccess) to EC2 and ECS.
+3. For this demo, users can be managed through an existing AWS Organization, AWS SSO or through IAM users.
 
 ## HOW TO USE
 1. Install following pre-requisites on your local computer to provision Jenkins on AWS EC2:
@@ -60,18 +61,6 @@ You should also see a [new AMI in us-east-1 region](https://us-east-1.console.aw
 ## ARCHITECTURE
 
 ![Architecture Diagram](assets/infra-architecture.jpeg)
-
-### CI/CD PIPELINE
-
-1. build code base
-
-2. test code base
-
-3. build docker container
-
-4. push docker container
-
-5. deploy frontend and backend services to AWS ECS
 
 ### INFRASTRUCTURE PROVISIONING (TERRAFORM)
 
