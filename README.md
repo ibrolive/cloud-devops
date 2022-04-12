@@ -39,24 +39,28 @@ You should also see a [new AMI in us-east-1 region](https://us-east-1.console.aw
    - preferred jenkins login username
    - preferred jenkins login password
    - EC2 instance size for jenkins
-8. Execute `2. Provision-Jenkins.bat` to provision a Jenkins EC2 instance on AWS using Terraform. After the Jenkins instance is successfully provisioned, Jenkins login URL should be displayed. See screnshot below:
+8. Update `docker_image_repository` on line 1 of [3. ci-cd/CI_CD_Frontend.Jenkinsfile](https://github.com/ibrolive/cloud-devops/blob/main/3.%20ci-cd/CI_CD_Frontend.Jenkinsfile) and [3. ci-cd/CI_CD_Backend.Jenkinsfile](https://github.com/ibrolive/cloud-devops/blob/main/3.%20ci-cd/CI_CD_Backend.Jenkinsfile)
+9. Execute `2. Provision-Jenkins.bat` to provision a Jenkins EC2 instance on AWS using Terraform. After the Jenkins instance is successfully provisioned, Jenkins login URL should be displayed. See screnshot below:
 ![Provisioning Jenkins Instance](assets/provisioning-jenkins-instance.jpg)
-9. Copy and paste Jenkins URL in your browser to launch Jenkins. You should see a seed job which adds other jobs to Jenkins. See screenshot below:
+10. Copy and paste Jenkins URL in your browser to launch Jenkins. You should see a seed job which adds other jobs to Jenkins. See screenshot below:
 ![Jenkins Home Page](assets/jenkins-home-page.jpg)
-10. Click the log in button at the top right corner to login to Jenkins using the Jenkins username and password you provided in the above step:
+11. Click the log in button at the top right corner to login to Jenkins using the Jenkins username and password you provided in the above step:
 ![Jenkins Login](assets/jenkins-login.jpg)
 11. By now, the seed job should have added three more jobs to Jenkins. All four jobs (seed job, provisioning pipeline, frontend pipeline and backend pipeline) should be triggered automatically for the first time. Naturally, the frontend and backend pipelines will fail to deploy until the AWS ECS infrastructure has been provisioned.
 ![Jenkins Jobs](assets/jenkins-jobs.jpg)
 12. The provisioning job is used to create AWS ECS infrastructure. Select the provisioning job, and select the action you would like to perform. You can perform the following actions:
-   - plan: this executes a simple terraform plan and shows you all the infrastructure that will be provisioned by terraform
-   - apply: this executes a terraform apply which provisions the AWS ECS infrastructure on your account
-   - plan-destroy: this executes a simple terraform plan -destroy and shows you all the infrastructure that will be destroyed
-   - destroy: this executes a terraform destroy and does a clean up of the application infrastructure provisioned by terraform on this Jenkins server (excluding the Jenkins server itself ofcourse)
+    - plan: this executes a simple terraform plan and shows you all the infrastructure that will be provisioned by terraform
+    - apply: this executes a terraform apply which provisions the AWS ECS infrastructure on your account
+    - plan-destroy: this executes a simple terraform plan -destroy and shows you all the infrastructure that will be destroyed
+    - destroy: this executes a terraform destroy and does a clean up of the application infrastructure provisioned by terraform on this Jenkins server (excluding the Jenkins server itself ofcourse)
 ![Choose Action](assets/choose-action.jpg)
-13. Select the apply action in the provisioning job above.
+13. Go to the PROVISIONING pipeline, click "Build Now", and select the plan action. If the plan fails, verify that you have entered correct AWS credentials in Jenkins credentials. Once the plan is completed successfully, click "Build Now" again and this time select the apply action.
+14. Once infrastructure provisioning is completed successfully, you should see the URL for the application in the Jenkins logs:
+![ALB Hostname](assets/alb-hostname.jpg)
+15. From the Jenkins logs, copy & paste the application URL (alb-hostname) into your web browser. A simple nginx web app should be displayed, showing you that your infrastructure was provisioned correctly:
 ![Infrastructure Provisioning Completed](assets/infrastructure-provisioning-completed.jpg)
-14. Update `dockerhub_repository` on line 1 of [3. ci-cd/CI-CD.Jenkinsfile](https://github.com/ibrolive/cloud-devops/blob/main/3.%20ci-cd/CI_CD.Jenkinsfile)
-15. Finally, to clean up the infrastructure, go to the PROVISIONING pipeline on Jenkins, click "Build Now", and select "destroy" action. This should remove all components of the AWS ECS application infrastructure. Next, execute `3. Destroy-Jenkins.bat` batch file. This should destroy the EC2 instance on AWS. Next, execute `4. Destroy AMI.bat`, this should remove the AMI base image.
+16. Go to the CICD-Frontend pipeline and click "Build Now". Repeate the same for the CICD-Backend pipeline. Note that both pipelines will trigger a new build whenever there's a commit in the application git repository.
+17. Finally, to clean up the infrastructure, go to the PROVISIONING pipeline on Jenkins, click "Build Now", and select "destroy" action. This should remove all components of the AWS ECS application infrastructure. Next, execute `3. Destroy-Jenkins.bat` batch file. This should destroy the EC2 instance on AWS. Next, execute `4. Destroy AMI.bat`, this should remove the AMI base image.
 
 
 ## ARCHITECTURE
