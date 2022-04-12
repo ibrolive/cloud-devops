@@ -2,14 +2,10 @@
 #   region = "us-east-1"
 # }
 
-resource "random_pet" "this" {
-  length = 2
-}
-
 module "dynamodb_table_manager" {
   source   = "terraform-aws-modules/dynamodb-table/aws"
 
-  name     = "manager-${random_pet.this.id}"
+  name     = "manager"
   hash_key = "id"
 
   attributes = [
@@ -40,7 +36,7 @@ module "dynamodb_table_manager" {
 module "dynamodb_table_employee" {
   source = "terraform-aws-modules/dynamodb-table/aws"
 
-  name      = "employee-${random_pet.this.id}"
+  name      = "employee"
   hash_key  = "id"
 
   attributes = [

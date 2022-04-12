@@ -9,7 +9,7 @@ This project is used to setup AWS infrastructure for a react/springboot applicat
 - Using the above Jenkins instance, the script then sets up an initial seed job which sets up 3 pipelines including a IaC pipeline, as well as a frontend and backend CICD pipeline
 - Using the above IaC pipeline, the script then uses terraform to provision an AWS ECS load-balanced and monitored infrastructure to run the application
 - The above IaC pipeline also contains a clean up pipeline to destroy the application infrastructure provisioned above
-- The above CICD pipeline builds and tests the application, pushes the application docker image to dockerhub and deploys the application to AWS ECS
+- The above CICD pipeline checks out [application code](https://github.com/ibrolive/react-and-spring-data-rest) from an external repository, builds and tests the application, pushes the application docker image to dockerhub and deploys the application to AWS ECS
 - The project takes advantage of AWS cloud native logging and monitoring such as CloudWatch.
 
 
@@ -54,7 +54,7 @@ You should also see a [new AMI in us-east-1 region](https://us-east-1.console.aw
    - destroy: this executes a terraform destroy and does a clean up of the application infrastructure provisioned by terraform on this Jenkins server (excluding the Jenkins server itself ofcourse)
 ![Choose Action](assets/choose-action.jpg)
 13. Select the apply action in the provisioning job above.
-![Infrastructure Provisioning Completed](infrastructure-provisioning-completed.jpg)
+![Infrastructure Provisioning Completed](assets/infrastructure-provisioning-completed.jpg)
 14. Update `dockerhub_repository` on line 1 of [3. ci-cd/CI-CD.Jenkinsfile](https://github.com/ibrolive/cloud-devops/blob/main/3.%20ci-cd/CI_CD.Jenkinsfile)
 15. Finally, to clean up the infrastructure, go to the PROVISIONING pipeline on Jenkins, click "Build Now", and select "destroy" action. This should remove all components of the AWS ECS application infrastructure. Next, execute `3. Destroy-Jenkins.bat` batch file. This should destroy the EC2 instance on AWS. Next, execute `4. Destroy AMI.bat`, this should remove the AMI base image.
 
