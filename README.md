@@ -3,7 +3,7 @@
 This project is used to setup AWS infrastructure for a react/springboot application. 
 
 ## ARCHITECTURE
-![Architecture Diagram](assets/infra-architecture.jpeg)
+![Architecture Diagram](assets/infra-architecture.png)
 
 ## HOW IT WORKS
 
