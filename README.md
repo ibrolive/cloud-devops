@@ -16,7 +16,7 @@
 3. Open a Command Prompt window and execute `aws configure` to setup the required AWS Access Key ID, AWS Secret Access Key and default region (us-east-1) for the AWS account where the infrastructure will be provisioned. Note that the default region has to be us-east-1 for this demo as the base AMI image used for this demo is located in this region.
 4. Checkout the code from this github repository
 5. In [0.AMI\node-agent.groovy](https://github.com/ibrolive/cloud-devops/blob/main/0.AMI/node-agent.groovy), update registryCredentials username and password for your docker account and your awsCredentials' AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY for your AWS account
-6. Execute `Build AMI.bat` (for Windows) or `Build AMI.sh` (for Linux) to provision a base AMI image (with Jenkins already installed) using packer. The AMI build should only take a few minutes. Once AMI is built successfully, you should see a message similar to the screenshot below:
+6. Execute `Build AMI.bat` (for Windows) or `Build AMI.sh` (for Linux) to provision a base AMI image (with Jenkins already installed) using packer. The AMI build should only take a few minutes. If an error occurs (might happen if you're running the script behind a proxy), log file can be found in 0.AMI\packer.log. Once AMI is built successfully, you should see a message similar to the screenshot below:
 ![Building AMI for Jenkins](assets/building-ami-for-jenkins.jpg)
 You should also see a [new AMI in us-east-1 region](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Images:visibility=owned-by-me) like the screenshot below:
 ![New AMI built with packer](assets/new-ami-built-with-packer.jpg)
