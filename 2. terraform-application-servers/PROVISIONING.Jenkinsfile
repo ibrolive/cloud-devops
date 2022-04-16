@@ -34,7 +34,7 @@ pipeline {
                         export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
                         export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
                         cd "2. terraform-application-servers"
-                        terraform plan
+                        terraform plan -var-file=app.tfvars
                     """
                 }
             }
@@ -54,7 +54,7 @@ pipeline {
                         export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
                         export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
                         cd "2. terraform-application-servers"
-                        terraform apply --auto-approve
+                        terraform apply --auto-approve -var-file=app.tfvars
                     """
                 }
             }
@@ -74,7 +74,7 @@ pipeline {
                         export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
                         export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
                         cd "2. terraform-application-servers"
-                        terraform plan -destroy
+                        terraform plan -destroy -var-file=app.tfvars
                     """
                 }
             }

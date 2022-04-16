@@ -3,18 +3,7 @@ def docker_image_tag        = 'react-springboot-image-backend'
 def docker_image_registry   = '' //registry-1.docker.io/v1
 pipeline { 
 agent any 
-    stages { 
-        stage ('Prerequisites') {
-            steps {
-                sh '''
-                    #sudo yum install -y docker java-1.8.0-openjdk-devel maven
-                    #sudo curl --output /var/lib/jenkins/apache-maven-3.8.1-bin.tar.gz https://downloads.apache.org/maven/maven-3/3.8.1/binaries/apache-maven-3.8.1-bin.tar.gz
-                    #tar -xvf /var/lib/jenkins/apache-maven-3.8.1-bin.tar.gz
-                    #docker --help
-                    #service docker restart #might not be necessary
-                '''
-            }
-        }
+    stages {
         stage ('Checkout') {
             steps {
                 git branch: 'main',
@@ -32,8 +21,7 @@ agent any
         }
         stage ('Test') { 
             steps {
-                // skipping tests because maven version 3.1.0 is required and only 3.0.5 is available on amazon linux noarch
-                sh './mvnw test #-Dmaven.test.failure.ignore=true -DskipTests -Dmaven.test.skip=true'
+                sh './mvnw test'
             }
         }
         stage ('Build Image') { 

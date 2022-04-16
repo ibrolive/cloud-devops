@@ -12,7 +12,7 @@ This project is used to setup AWS infrastructure for a react/springboot applicat
 - Using the above Jenkins instance, the script then sets up an initial seed job which sets up 3 pipelines including a IaC pipeline, as well as a frontend and backend CICD pipeline
 - Using the above IaC pipeline, the script then uses terraform to provision an AWS ECS load-balanced and monitored infrastructure to run the application
 - The above IaC pipeline also contains a clean up pipeline to destroy the application infrastructure provisioned above
-- The above CICD pipeline checks out [application code](https://github.com/ibrolive/react-and-spring-data-rest) from an external repository, builds and tests the application, pushes the application docker image to dockerhub and deploys the application to AWS ECS
+- The above CICD pipeline checks out [application code](https://github.com/ibrolive/react-and-spring-data-rest) from an external repository, builds and tests the application, pushes the application docker image to dockerhub and deploys the application to AWS ECS. The application itself is a react/springboot application which connects to a mysql database deployed in aws in place of the h2 in-memory database.
 - The project takes advantage of AWS cloud native logging and monitoring such as CloudWatch.
 
 
@@ -64,7 +64,7 @@ You should also see a [new AMI in us-east-1 region](https://us-east-1.console.aw
 12. By now, the seed job should have added three more jobs to Jenkins. All four jobs (seed job, provisioning pipeline, frontend pipeline and backend pipeline) should be triggered automatically for the first time. Naturally, the frontend and backend pipelines will fail to deploy until the AWS ECS infrastructure has been provisioned.
 ![Jenkins Jobs](assets/jenkins-jobs.jpg)
 
-13. The provisioning job is used to create AWS ECS infrastructure. Select the provisioning job, and select the action you would like to perform. You can perform the following actions:
+13. The provisioning job is used to create infrastructure for AWS ECS and AWS RDS for mysql. Select the provisioning job, and select the action you would like to perform. You can perform the following actions:
     - plan: this executes a simple terraform plan and shows you all the infrastructure that will be provisioned by terraform
     - apply: this executes a terraform apply which provisions the AWS ECS infrastructure on your account
     - plan-destroy: this executes a simple terraform plan -destroy and shows you all the infrastructure that will be destroyed
