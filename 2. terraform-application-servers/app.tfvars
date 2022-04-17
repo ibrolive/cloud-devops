@@ -11,7 +11,7 @@ fargate_cpu       = "1024"
 fargate_memory    = "2048"
 
 # MySQL DB vars
-db_name           = "mysql-db"
+db_name           = "mysqldb"
 db_username       = "user1"
 db_password       = "password"
 db_port           = 3306
