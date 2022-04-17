@@ -1,3 +1,8 @@
+
+variable "aws_region" {
+  description = "The AWS region resources are created in"
+}
+
 variable "db_name" {
   description = "MySQL database name"
 }

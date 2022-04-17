@@ -1,7 +1,7 @@
 # variables.tf
 
 variable "aws_region" {
-  description = "The AWS region things are created in"
+  description = "The AWS region resources are created in"
   default     = "us-east-1"
 }
 
@@ -44,3 +44,22 @@ variable "fargate_memory" {
   default     = "2048"
 }
 
+variable "db_name" {
+  description = "MySQL database name"
+}
+
+variable "db_username" {
+  description = "MySQL database username"
+}
+
+variable "db_password" {
+  description = "MySQL database password"
+}
+
+variable "db_port" {
+  description = "MySQL database port"
+}
+
+variable "db_instance_class" {
+  description = "MySQL database instance class"
+}
