@@ -13,6 +13,6 @@ fargate_memory    = "2048"
 # MySQL DB vars
 db_name           = "mysql-db"
 db_username       = "user1"
-db_password       = "passwords"
+db_password       = "password"
 db_port           = 3306
 db_instance_class = "db.t2.micro"

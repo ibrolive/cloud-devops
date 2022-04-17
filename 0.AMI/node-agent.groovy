@@ -39,15 +39,15 @@ githubCredentials = new UsernamePasswordCredentialsImpl(
 registryCredentials = new UsernamePasswordCredentialsImpl(
   CredentialsScope.GLOBAL,
   "registry", "Docker Registry credentials",
-  "USERNAME",
-  "PASSWORD"
+  "ibrolive",
+  "Opepopup0*"
 )
 
 awsCredentials = new UsernamePasswordCredentialsImpl(
   CredentialsScope.GLOBAL,
   "aws_cli_credential", "AWS CLI Credentials",
-  "AWS_ACCESS_KEY_ID",
-  "AWS_SECRET_ACCESS_KEY"
+  "AKIA34ZFWKEGAN2OUDAQ",
+  "LT6u5SAss2svk0RuCp1Fs8+ffXuFofr0JgYVgzr2"
 )
 
 store.addCredentials(domain, slavesPrivateKey)
