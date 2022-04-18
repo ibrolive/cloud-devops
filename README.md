@@ -32,7 +32,7 @@ This project is used to setup AWS infrastructure for a react/springboot applicat
    - `terraform -v`
    - `aws --version`
 
-3. Open a Command Prompt window and execute `aws configure` to setup the required AWS Access Key ID, AWS Secret Access Key and default region (us-east-1) for the AWS account where the infrastructure will be provisioned. Note that the default region has to be us-east-1 for this demo as the base AMI image used for this demo is located in this region.
+3. Open a Command Prompt window and execute `aws configure` to setup the required AWS Access Key ID, AWS Secret Access Key and default region (us-east-1) for the AWS account where the infrastructure will be provisioned using the `default` profile. Note that the default region has to be us-east-1 for this demo as the base AMI image used for this demo is located in this region.
 
 4. Checkout the code from this github repository
 

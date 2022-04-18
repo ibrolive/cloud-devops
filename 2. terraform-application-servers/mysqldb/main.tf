@@ -2,10 +2,13 @@ provider "aws" {
   region = var.aws_region
 }
 
+# TODO: replace this locals block with a variable
 locals {
   tags = {
-    Owner       = "user"
-    Environment = "dev"
+    Name   = "application-server",
+    Author = "IB",
+    Tool   = "Terraform",
+    Environment = "application-server"
   }
 }
 

@@ -20,10 +20,5 @@ resource "aws_elb" "jenkins_elb" {
     interval            = 5
   }
 
-  tags = {
-    Name   = "jenkins_elb",
-    Author = "user",
-    Tool   = "Terraform",
-    Environment = "devops-demo"
-  }
+  tags = local.tags
 }

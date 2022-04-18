@@ -5,9 +5,7 @@ resource "aws_cloudwatch_log_group" "devops_log_group" {
   name              = "/ecs/devops-app"
   retention_in_days = 30
 
-  tags = {
-    Name = "devops-log-group"
-  }
+  tags = local.tags
 }
 
 resource "aws_cloudwatch_log_stream" "devops_log_stream" {

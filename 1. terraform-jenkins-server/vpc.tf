@@ -12,35 +12,12 @@ module "vpc" {
   enable_nat_gateway = true
   enable_vpn_gateway = true
 
-  tags = {
-    Name   = "172.31.0.0/16",
-    Author = "user",
-    Tool   = "Terraform",
-    Environment = "devops-demo"
-  }
+  tags = local.tags
 }
-
-// resource "aws_vpc" "main" {
-//   cidr_block           = "172.31.0.0/16"
-//   enable_dns_hostnames = true
-
-//   tags = {
-//     Name   = "172.31.0.0/16"
-//     Author = "user"
-//     Tool   = "Terraform",
-//     Environment = "devops-demo"
-//   }
-// }
 
 resource "aws_subnet" "main" {
   vpc_id     = "${module.vpc.vpc_id}"
-  // cidr_block = "172.31.0.0/16"10.0.3.0/24
   cidr_block = "10.0.4.0/24"
 
-  tags = {
-    Name   = "172.31.0.0/16",
-    Author = "user",
-    Tool   = "Terraform",
-    Environment = "devops-demo"
-  }
+  tags = local.tags
 }

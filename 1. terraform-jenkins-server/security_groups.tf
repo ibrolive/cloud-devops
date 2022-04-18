@@ -6,11 +6,7 @@ resource "aws_security_group" "custom-jenkins-ami_sg" {
   # legacy name of VPC ID
   vpc_id = "${module.vpc.vpc_id}"
 
-  tags = {
-    Name = "custom-jenkins-ami",
-    env  = "dev",
-    Environment = "devops-demo"
-  }
+  tags = local.tags
 }
 
 ###############################################################################
@@ -85,10 +81,5 @@ resource "aws_security_group" "elb_jenkins_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name   = "elb_jenkins_sg",
-    Author = "user",
-    Tool   = "Terraform",
-    Environment = "devops-demo"
-  }
+  tags = local.tags
 }

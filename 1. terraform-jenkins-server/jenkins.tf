@@ -11,12 +11,7 @@ resource "aws_instance" "custom-jenkins-ami" {
     delete_on_termination = false
   }
 
-  tags = {
-    Name   = "custom-jenkins-ami",
-    Author = "user",
-    Tool   = "Terraform",
-    Environment = "devops-demo"
-  }
+  tags = local.tags
 }
 
 ##############
@@ -31,12 +26,7 @@ resource "aws_key_pair" "keypair" {
   key_name = "devops-demo"
   public_key      = tls_private_key.this.public_key_openssh
 
-  tags = {
-    Name   = "custom-jenkins-ami",
-    Author = "user",
-    Tool   = "Terraform",
-    Environment = "devops-demo"
-  }
+  tags = local.tags
 }
 
 ######################
@@ -49,10 +39,5 @@ resource "aws_ssm_parameter" "keypair" {
   type        = "SecureString"
   value       = tls_private_key.this.private_key_pem
 
-  tags = {
-    Name   = "custom-jenkins-ami",
-    Author = "user",
-    Tool   = "Terraform",
-    Environment = "devops-demo"
-  }
+  tags = local.tags
 }

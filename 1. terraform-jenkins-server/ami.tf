@@ -1,5 +1,6 @@
 provider "aws" {
-  region = var.region
+  region  = var.region
+  profile = "default"
 }
 data "aws_ami" "custom-jenkins-ami" {
   most_recent = true

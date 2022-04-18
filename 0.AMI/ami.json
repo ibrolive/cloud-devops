@@ -17,9 +17,10 @@
                 "Name" : "packer-builder-docker"
             },
             "tags" : {
+                "Name" : "jenkins-server",
                 "Tool" : "Packer",
-                "Author" : "user",
-                "Environment" : "devops-demo"
+                "Author" : "IB",
+                "Environment" : "jenkins-server"
             }
         }
     ],
