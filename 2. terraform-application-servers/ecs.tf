@@ -71,7 +71,7 @@ resource "aws_ecs_service" "frontend" {
 
   load_balancer {
     target_group_arn = aws_alb_target_group.app.id
-    container_name   = "devops-app"
+    container_name   = "devops-app-frontend"
     container_port   = var.app_port_frontend
   }
 
