@@ -38,12 +38,20 @@ variable "health_check_path" {
   description = "Context path to check for application health"
 }
 
-variable "fargate_cpu" {
+variable "task_cpu" {
   description = "Fargate instance CPU units to provision (1 vCPU = 1024 CPU units)"
 }
 
-variable "fargate_memory" {
+variable "task_memory" {
   description = "Fargate instance memory to provision (in MiB)"
+}
+
+variable "container_cpu" {
+  description = "Container CPU units to provision (1 vCPU = 1024 CPU units)"
+}
+
+variable "container_memory" {
+  description = "Container memory to provision (in MiB)"
 }
 
 variable "db_name" {

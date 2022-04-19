@@ -14,8 +14,8 @@ data "template_file" "devops_app" {
     app_port          = var.app_port
     app_port_frontend = var.app_port_frontend
     app_port_backend  = var.app_port_backend
-    fargate_cpu       = var.fargate_cpu
-    fargate_memory    = var.fargate_memory
+    container_cpu     = var.container_cpu
+    container_memory  = var.container_memory
     aws_region        = var.aws_region
   }
 }
@@ -25,8 +25,8 @@ resource "aws_ecs_task_definition" "app" {
   execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
   network_mode             = "awsvpc"
   requires_compatibilities = ["FARGATE"]
-  cpu                      = var.fargate_cpu
-  memory                   = var.fargate_memory
+  cpu                      = var.task_cpu
+  memory                   = var.task_memory
   container_definitions    = data.template_file.devops_app.rendered
 
   tags = local.tags

@@ -9,8 +9,10 @@ app_port_frontend = 81
 app_port_backend  = 82
 app_count         = 3
 health_check_path = "/login"
-fargate_cpu       = "1024"
-fargate_memory    = "2048"
+task_cpu          = "3072"
+task_memory       = "6144"
+container_cpu     = "1024"
+container_memory  = "2048"
 
 # MySQL DB vars
 db_name           = "mysqldb"
