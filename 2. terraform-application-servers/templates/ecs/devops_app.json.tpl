@@ -36,7 +36,7 @@
     },
     "portMappings": [
       {
-        "containerPort": ${app_port},
+        "containerPort": ${app_port_frontend},
         "hostPort": ${app_port_frontend}
       }
     ]
@@ -57,7 +57,7 @@
     },
     "portMappings": [
       {
-        "containerPort": ${app_port},
+        "containerPort": ${app_port_backend},
         "hostPort": ${app_port_backend}
       }
     ]
