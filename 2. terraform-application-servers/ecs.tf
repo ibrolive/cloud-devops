@@ -10,11 +10,13 @@ data "template_file" "devops_app" {
   template = file("./templates/ecs/devops_app.json.tpl")
 
   vars = {
-    app_image      = var.app_image
-    app_port       = var.app_port
-    fargate_cpu    = var.fargate_cpu
-    fargate_memory = var.fargate_memory
-    aws_region     = var.aws_region
+    app_image         = var.app_image
+    app_port          = var.app_port
+    app_port_frontend = var.app_port_frontend
+    app_port_backend  = var.app_port_backend
+    fargate_cpu       = var.fargate_cpu
+    fargate_memory    = var.fargate_memory
+    aws_region        = var.aws_region
   }
 }
 
