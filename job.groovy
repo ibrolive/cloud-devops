@@ -1,3 +1,4 @@
+GIT_BRANCH="dev"
 pipelineJob("CICD-Frontend") {
   definition {
     cpsScm {
@@ -6,6 +7,7 @@ pipelineJob("CICD-Frontend") {
           remote {
             url("https://github.com/ibrolive/cloud-devops.git")
           }
+          branch($GIT_BRANCH)
         }
       }
       scriptPath("3. ci-cd/CI_CD_Frontend.Jenkinsfile")
@@ -23,6 +25,7 @@ pipelineJob("CICD-Backend") {
           remote {
             url("https://github.com/ibrolive/cloud-devops.git")
           }
+          branch($GIT_BRANCH)
         }
       }
       scriptPath("3. ci-cd/CI_CD_Backend.Jenkinsfile")
@@ -40,6 +43,7 @@ pipelineJob("PROVISIONING") {
           remote {
             url("https://github.com/ibrolive/cloud-devops.git")
           }
+          branch($GIT_BRANCH)
         }
       }
       scriptPath("2. terraform-application-servers/PROVISIONING.Jenkinsfile")
