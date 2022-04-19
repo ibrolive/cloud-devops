@@ -55,7 +55,7 @@ You should also see a [new AMI in us-east-1 region](https://us-east-1.console.aw
 9. Execute `2.Provision-Jenkins.bat` to provision a Jenkins EC2 instance on AWS using Terraform. After the Jenkins instance is successfully provisioned, Jenkins login URL should be displayed. See screnshot below:
 ![Provisioning Jenkins Instance](assets/provisioning-jenkins-instance.jpg)
 
-10. Copy and paste Jenkins URL in your browser to launch Jenkins. You should see a seed job which adds other jobs to Jenkins. See screenshot below:
+10. The Jenkins server should take only a few seconds to start. Now you can copy and paste Jenkins URL in your browser to launch Jenkins. You should see a seed job which adds other jobs to Jenkins. See screenshot below:
 ![Jenkins Home Page](assets/jenkins-home-page.jpg)
 
 11. Click the log in button at the top right corner to login to Jenkins using the Jenkins username and password you provided in the above step:

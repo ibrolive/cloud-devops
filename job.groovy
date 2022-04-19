@@ -1,4 +1,4 @@
-GIT_BRANCH="dev"
+def GIT_BRANCH="dev"
 pipelineJob("CICD-Frontend") {
   definition {
     cpsScm {
