@@ -81,6 +81,7 @@ module "db" {
   multi_az               = false
   subnet_ids             = data.aws_subnets.all.ids // switch to dedicated database subnets for production workloads !!!
   vpc_security_group_ids = [module.security_group.security_group_id]
+  create_random_password = false
 
   maintenance_window              = "Mon:00:00-Mon:03:00"
   backup_window                   = "03:00-06:00"
