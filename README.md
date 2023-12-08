@@ -44,6 +44,15 @@ This project is used to setup AWS infrastructure for a react/springboot applicat
 You should also see a [new AMI in us-east-1 region](https://us-east-1.console.aws.amazon.com/ec2/v2/home?region=us-east-1#Images:visibility=owned-by-me) like the screenshot below:
 ![New AMI built with packer](assets/new-ami-built-with-packer.jpg)
 
+If you get this error: 
+
+`The builder amazon-ebs is unknown by Packer, and is likely part of a plugin that
+is not installed.`
+
+then run the command below:
+
+`packer plugins install github.com/hashicorp/amazon`
+
 7. In [1. terraform-jenkins-server/jenkins.tfvars](https://github.com/ibrolive/cloud-devops/blob/main/1.%20terraform-jenkins-server/jenkins.tfvars), you can set the values for the following or use the current default values:
    - default region (must be us-east-1 for this demo)
    - preferred jenkins login username (default is 'admin')
